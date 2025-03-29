@@ -91,7 +91,7 @@ final class RMCharacterDetailViewViewModel{
             top: 2,
             leading: 2,
             bottom: 2,
-            trailing: 2
+            trailing: 10
          )
         
          let group = NSCollectionLayoutGroup.vertical(
