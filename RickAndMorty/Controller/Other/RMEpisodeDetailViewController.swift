@@ -10,9 +10,6 @@ import UIKit
 /// VC to show details about single episode
 final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewModelDelegate,
                                            RMEpisodeDetailViewDelegate{
-    func rmEpisodeDetailView(_ detailView: RMEpisodeDetailView, didSelect character: RMCharacterCollectionViewCell) {
-        return 
-    }
     
     private let viewModel: RMEpisodeDetailViewViewModel
     
@@ -36,6 +33,8 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
         detailView.delegate = self
         title = "Episode"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+        viewModel.delegate = self
+        viewModel.fetchEpisodeData()
     }
     
     private func addConstraints() {
