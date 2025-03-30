@@ -17,8 +17,17 @@ final class RMEpisodeViewController: UIViewController, RMEpisodeListViewDelegate
             view.backgroundColor = .systemBackground
             title = "Episodes"
             setUpView()
-            
+            addSearchButton()
         }
+    private func addSearchButton(){
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapShare))
+    }
+    
+    @objc private func didTapSearch(){
+        let vc = RMSearchViewController(config: .init(type: .episode))
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
         
     
         private func setUpView(){
@@ -40,7 +49,7 @@ final class RMEpisodeViewController: UIViewController, RMEpisodeListViewDelegate
         detailVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(detailVC, animated: true )
     }
-    }
+}
         
         
     
