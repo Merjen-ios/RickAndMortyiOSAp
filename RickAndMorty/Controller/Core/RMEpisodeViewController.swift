@@ -40,6 +40,11 @@ final class RMEpisodeViewController: UIViewController, RMEpisodeListViewDelegate
                 episodeListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             ])
         }
+    
+    @objc
+     private func didTapShare(){
+        
+    }
         
         // MARK: - RMEpisodeListViewDelegate
    
