@@ -73,6 +73,7 @@
 		8FC4F81A2D9922CD00C1F2E7 /* RMSearchInputViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F8192D9922CD00C1F2E7 /* RMSearchInputViewViewModel.swift */; };
 		8FC4F81C2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F81B2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift */; };
 		8FC4F81F2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F81E2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift */; };
+		8FC4F8212D9A841900C1F2E7 /* RMSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F8202D9A841900C1F2E7 /* RMSearchResultsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		8FC4F8192D9922CD00C1F2E7 /* RMSearchInputViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchInputViewViewModel.swift; sourceTree = "<group>"; };
 		8FC4F81B2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchOptionPickerViewController.swift; sourceTree = "<group>"; };
 		8FC4F81E2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchResultViewModel.swift; sourceTree = "<group>"; };
+		8FC4F8202D9A841900C1F2E7 /* RMSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchResultsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -473,6 +475,7 @@
 				8FC4F80E2D991C1100C1F2E7 /* RMSearchView.swift */,
 				8FC4F8122D9921D800C1F2E7 /* RMNoSearchResultsView.swift */,
 				8FC4F8172D99229700C1F2E7 /* RMSearchInputView.swift */,
+				8FC4F8202D9A841900C1F2E7 /* RMSearchResultsView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				8FC4F8162D99223800C1F2E7 /* RMNoSearchResultsViewViewModel.swift in Sources */,
 				8F1A9A6F2D8AF99E00DD3B71 /* RMSingleLocation.swift in Sources */,
 				8F1B04C72D8ED77600A4AFD2 /* RMCharacterCollectionViewCell.swift in Sources */,
+				8FC4F8212D9A841900C1F2E7 /* RMSearchResultsView.swift in Sources */,
 				8F1A9A712D8AFDDE00DD3B71 /* RMCharacterStatus.swift in Sources */,
 				8FC4F80C2D988CCD00C1F2E7 /* RMLocationDetailViewViewModel.swift in Sources */,
 				8F1B04D72D9047C300A4AFD2 /* RMCharacterDetailViewController.swift in Sources */,
