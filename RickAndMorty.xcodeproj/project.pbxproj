@@ -72,6 +72,7 @@
 		8FC4F8182D99229700C1F2E7 /* RMSearchInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F8172D99229700C1F2E7 /* RMSearchInputView.swift */; };
 		8FC4F81A2D9922CD00C1F2E7 /* RMSearchInputViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F8192D9922CD00C1F2E7 /* RMSearchInputViewViewModel.swift */; };
 		8FC4F81C2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F81B2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift */; };
+		8FC4F81F2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F81E2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		8FC4F8172D99229700C1F2E7 /* RMSearchInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchInputView.swift; sourceTree = "<group>"; };
 		8FC4F8192D9922CD00C1F2E7 /* RMSearchInputViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchInputViewViewModel.swift; sourceTree = "<group>"; };
 		8FC4F81B2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchOptionPickerViewController.swift; sourceTree = "<group>"; };
+		8FC4F81E2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchResultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -481,6 +483,7 @@
 				8FC4F8102D991CCB00C1F2E7 /* RMSearchViewViewModel.swift */,
 				8FC4F8152D99223800C1F2E7 /* RMNoSearchResultsViewViewModel.swift */,
 				8FC4F8192D9922CD00C1F2E7 /* RMSearchInputViewViewModel.swift */,
+				8FC4F81E2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				8F5B2DAB2D75A86E00BE4153 /* RMCharacter.swift in Sources */,
 				8FC4F7FC2D98236000C1F2E7 /* RMLocationView.swift in Sources */,
 				8F1B05162D9572F300A4AFD2 /* RMEpisodeListViewViewModel.swift in Sources */,
+				8FC4F81F2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift in Sources */,
 				8F1B050D2D955AC800A4AFD2 /* RMAPICacheManager.swift in Sources */,
 				8F1B05182D95786100A4AFD2 /* RMGetAllEpisodesResponse.swift in Sources */,
 				8F1B05222D96AA2C00A4AFD2 /* RMEpisodeInfoCollectionViewCellViewModel.swift in Sources */,

@@ -164,7 +164,7 @@ extension RMLocationDetailView: UICollectionViewDelegate, UICollectionViewDataSo
             guard let character = viewModel.character(at: indexPath.row )else{
                 return
             }
-            delegate?.RMLocationDetailView(self, didSelect: character)
+            delegate?.rmEpisodeDetailView(self, didSelect: character)
         }
     }
 }

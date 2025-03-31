@@ -40,6 +40,9 @@ final class RMSearchView: UIView {
         viewModel.registerOptionChangeBlock {tuple in
             self.searchInputView.update(option: tuple.0, value: tuple.1)
         }
+        viewModel.registerSearchResultHandler { results in
+            print(results)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -83,5 +86,11 @@ final class RMSearchView: UIView {
 extension RMSearchView: RMSearchInputViewDelegate{
     func rmSearchInputView(_ inputView: RMSearchInputView, didSelectOption option: RMSearchInputViewViewModel.DynamicOption) {
         delegate?.rmSearchView(self, didSelectOption: option)
+    }
+    func rmSearchInputView(_ inputView: RMSearchInputView, didChangeSearchText text: String) {
+        viewModel.set(query: text)
+    }
+    func rmSearchInputViewDidTapSearchKeyboardButton(_ inputView: RMSearchInputView) {
+        viewModel.executeSearch()
     }
 }
