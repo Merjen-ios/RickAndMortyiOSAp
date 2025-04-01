@@ -71,7 +71,7 @@ final class RMSearchInputViewViewModel{
         case .location:
             return "Location Name"
         case .episode:
-            return "Episode T itle"
+            return "Episode Title"
             
         }
     }

@@ -24,14 +24,14 @@ final class RMLocationViewController: UIViewController, RMLocationViewViewModelD
         addSearchButton()
         addConstraints()
         viewModel.delegate = self
-        viewModel.fetchLocations()
+        viewModel.fetchAdditionalLocations()
     }
     
     private func addSearchButton(){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapSearch))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
     }
     
-    private func addConstraints(){
+    private func addConstraints() {
         NSLayoutConstraint.activate([
             primaryView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             primaryView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
@@ -41,7 +41,7 @@ final class RMLocationViewController: UIViewController, RMLocationViewViewModelD
         ])
     }
     
-    @objc private func didTapSearch(){
+    @objc private func didTapSearch()  {
         let vc = RMSearchViewController(config: .init(type: .location))
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)

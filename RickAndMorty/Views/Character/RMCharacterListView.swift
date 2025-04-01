@@ -9,13 +9,14 @@ import UIKit
 
 protocol RMCharacterListViewDelegate: AnyObject{
     func rmCharacterListView(
-        _characterListView: RMCharacterListView,
+        _ characterListView: RMCharacterListView,
         didSelectCharacter character: RMCharacter
     )
 }
 
 /// View that handles showing list of characters , loader, etc.
 final class RMCharacterListView: UIView {
+    
     public weak var delegate: RMCharacterListViewDelegate?
     
     private let viewModel = RMCharacterListViewViewModel()
@@ -47,8 +48,6 @@ final class RMCharacterListView: UIView {
     override init(frame: CGRect){
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(collectionView)
-        self.addSubview(spinner)
         addSubviews(collectionView,spinner)
         addConstraints()
         spinner.startAnimating()
@@ -82,8 +81,8 @@ final class RMCharacterListView: UIView {
 }
 
 extension RMCharacterListView: RMCharacterListViewViewModelDelegate4{
-    func didSelectCharacter(_character character: RMCharacter) {
-        delegate?.rmCharacterListView(_characterListView: self, didSelectCharacter: character)
+    func didSelectCharacter(_ character: RMCharacter) {
+        delegate?.rmCharacterListView(self, didSelectCharacter: character)
     }
     
     func didLoadInitialCharacters() {

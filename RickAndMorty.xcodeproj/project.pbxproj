@@ -74,6 +74,7 @@
 		8FC4F81C2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F81B2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift */; };
 		8FC4F81F2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F81E2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift */; };
 		8FC4F8212D9A841900C1F2E7 /* RMSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F8202D9A841900C1F2E7 /* RMSearchResultsView.swift */; };
+		8FC4F8232D9B1FDF00C1F2E7 /* RMTableLoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC4F8222D9B1FDF00C1F2E7 /* RMTableLoadingFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		8FC4F81B2D995D6200C1F2E7 /* RMSearchOptionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchOptionPickerViewController.swift; sourceTree = "<group>"; };
 		8FC4F81E2D9A54B200C1F2E7 /* RMSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchResultViewModel.swift; sourceTree = "<group>"; };
 		8FC4F8202D9A841900C1F2E7 /* RMSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchResultsView.swift; sourceTree = "<group>"; };
+		8FC4F8222D9B1FDF00C1F2E7 /* RMTableLoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMTableLoadingFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -447,6 +449,7 @@
 			children = (
 				8FC4F7FB2D98236000C1F2E7 /* RMLocationView.swift */,
 				8FC4F8012D98432000C1F2E7 /* RMLocationTableViewCell.swift */,
+				8FC4F8222D9B1FDF00C1F2E7 /* RMTableLoadingFooterView.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				8FC4F8112D991CCB00C1F2E7 /* RMSearchViewViewModel.swift in Sources */,
 				8F1A9A6D2D8AF7E500DD3B71 /* RMOrigin.swift in Sources */,
 				8FC4F8162D99223800C1F2E7 /* RMNoSearchResultsViewViewModel.swift in Sources */,
+				8FC4F8232D9B1FDF00C1F2E7 /* RMTableLoadingFooterView.swift in Sources */,
 				8F1A9A6F2D8AF99E00DD3B71 /* RMSingleLocation.swift in Sources */,
 				8F1B04C72D8ED77600A4AFD2 /* RMCharacterCollectionViewCell.swift in Sources */,
 				8FC4F8212D9A841900C1F2E7 /* RMSearchResultsView.swift in Sources */,

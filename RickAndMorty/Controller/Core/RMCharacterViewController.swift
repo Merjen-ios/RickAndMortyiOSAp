@@ -20,8 +20,8 @@ final class RMCharacterViewController: UIViewController, RMCharacterListViewDele
         addSearchButton()
     }
     
-    private func addSearchButton(){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapSearch))
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
     }
     
     @objc private func didTapSearch(){
@@ -42,7 +42,7 @@ final class RMCharacterViewController: UIViewController, RMCharacterListViewDele
     }
     
     // MARK: - RMCharacterListViewDelegate
-    func rmCharacterListView(_characterListView: RMCharacterListView, didSelectCharacter character: RMCharacter) {
+    func rmCharacterListView(_ characterListView: RMCharacterListView, didSelectCharacter character: RMCharacter) {
         // Open detail controller that character
         let viewModel = RMCharacterDetailViewViewModel(character: character)
         let detailVC = RMCharacterDetailViewController(viewModel: viewModel)

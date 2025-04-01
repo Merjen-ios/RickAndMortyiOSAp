@@ -37,7 +37,6 @@ struct RMSettingsView: View {
                 .onTapGesture {
                     viewModel.onTapHandler(viewModel.type)
                 }
-                .background(Color.red)
             }
         }
     }

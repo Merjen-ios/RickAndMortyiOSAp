@@ -11,7 +11,7 @@ protocol RMEpisodeListViewViewModelDelegate: AnyObject {
     func didLoadInitialEpisodes()
     func didLoadMoreEpisodes(with newIndexPath: [IndexPath])
      
-    func didSelectEpisode(_episode: RMEpisode)
+    func didSelectEpisode(_ episode: RMEpisode)
 }
 
 /// View Model to handle episode list view logic
@@ -33,7 +33,7 @@ final class RMEpisodeListViewViewModel: NSObject{
         .systemMint
     ]
     
-    private var episodes: [RMEpisode] = []{
+    private var episodes: [RMEpisode] = [] {
         didSet{
             for episode in episodes {
                 let viewModel = RMCharacterEpisodeCollectionViewCellViewModel (
@@ -64,7 +64,7 @@ final class RMEpisodeListViewViewModel: NSObject{
                 self?.apiInfo = info
                 DispatchQueue.main.async {
                     self?.delegate?.didLoadInitialEpisodes()
-
+                    
                 }
             case.failure(let error):
                 print (String(describing: error))
@@ -80,8 +80,8 @@ final class RMEpisodeListViewViewModel: NSObject{
         isLoadingMoreCharacters = true
         guard let request = RMRequest(url: url) else{
             isLoadingMoreCharacters = false
-    
-             return
+            
+            return
         }
         
         RMService.shared.execute(request,expecting: RMGetAllEpisodesResponse.self) {[weak self] result in
@@ -93,7 +93,7 @@ final class RMEpisodeListViewViewModel: NSObject{
                 let moreResults = responseModel.results
                 let info = responseModel.info
                 strongSelf.apiInfo = info
-
+                
                 
                 let originalCount = strongSelf.episodes .count
                 let newCount = moreResults.count
@@ -109,49 +109,49 @@ final class RMEpisodeListViewViewModel: NSObject{
                     strongSelf.delegate?.didLoadMoreEpisodes(
                         with: indexPathsToAdd
                     )
-                   strongSelf.isLoadingMoreCharacters = false
+                    strongSelf.isLoadingMoreCharacters = false
                 }
             case .failure(let failure):
                 print(String(describing: failure))
                 self?.isLoadingMoreCharacters = false
-           }
+            }
         }
     }
     public var shouldShowLoadMoreIndicator: Bool {
         return  apiInfo?.next != nil
     }
 }
-
-// MARK: -CollectionView
-
-extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
-{
+    // MARK: -CollectionView
+    
+extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellViewModels.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      guard let cell = collectionView.dequeueReusableCell(
-        withReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifier,
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifer,
             for: indexPath
-      ) as? RMCharacterEpisodeCollectionViewCell else{
-          fatalError("Unsupported cell")
-      }
+        ) as? RMCharacterEpisodeCollectionViewCell else{
+            fatalError("Unsupported cell")
+        }
         cell.configure(with: cellViewModels[indexPath.row])
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionFooter,
-         let footer = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier,
-            for: indexPath
-        )as? RMFooterLoadingCollectionReusableView else{
+              let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier,
+                for: indexPath
+              )as? RMFooterLoadingCollectionReusableView else{
             fatalError("Unsupported")
         }
         footer.startAnimating()
         return footer
-        
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         guard shouldShowLoadMoreIndicator else{
             return .zero
@@ -159,6 +159,7 @@ extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionVi
         return CGSize(width: collectionView.frame.width,
                       height: 100)
     }
+    
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let bounds = collectionView.bounds
@@ -168,14 +169,16 @@ extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionVi
             height: 100
         )
     }
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let selection = episodes[indexPath.row]
-        delegate?.didSelectEpisode(_episode: selection)
+        delegate?.didSelectEpisode(selection)
     }
 }
-// MARK: - ScrollView
-extension RMEpisodeListViewViewModel: UIScrollViewDelegate{
+
+    // MARK: - ScrollView
+extension RMEpisodeListViewViewModel: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard shouldShowLoadMoreIndicator,
               !isLoadingMoreCharacters,
@@ -196,3 +199,4 @@ extension RMEpisodeListViewViewModel: UIScrollViewDelegate{
         }
     }
 }
+

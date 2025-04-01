@@ -10,13 +10,14 @@ import UIKit
 
 protocol RMEpisodeListViewDelegate: AnyObject{
     func rmEpisodeListView(
-        _characterListView: RMEpisodeListView,
+        _ characterListView: RMEpisodeListView,
         didSelectEpisode episode: RMEpisode
     )
 }
 
 /// View that handles showing list of episodes , loader, etc.
 final class RMEpisodeListView: UIView {
+    
     public weak var delegate: RMEpisodeListViewDelegate?
     
     private let viewModel = RMEpisodeListViewViewModel()
@@ -37,7 +38,7 @@ final class RMEpisodeListView: UIView {
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(RMCharacterEpisodeCollectionViewCell.self ,
-                                forCellWithReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifier)
+                                forCellWithReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifer)
         collectionView.register(RMFooterLoadingCollectionReusableView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier)
@@ -48,8 +49,6 @@ final class RMEpisodeListView: UIView {
     override init(frame: CGRect){
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(collectionView)
-        self.addSubview(spinner)
         addSubviews(collectionView,spinner)
         addConstraints()
         spinner.startAnimating()
@@ -98,7 +97,7 @@ extension RMEpisodeListView: RMEpisodeListViewViewModelDelegate{
         }
     }
     
-    func didSelectEpisode(_episode: RMEpisode) {
-        delegate?.rmEpisodeListView(_characterListView: self, didSelectEpisode: _episode)
+    func didSelectEpisode(_ episode: RMEpisode) {
+        delegate?.rmEpisodeListView(self, didSelectEpisode: episode)
     }
 } 

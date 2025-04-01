@@ -19,7 +19,7 @@ protocol RMCharacterListViewViewModelDelegate4: AnyObject {
     func didLoadInitialCharacters()
     func didLoadMoreCharacters(with newIndexPath: [IndexPath])
      
-    func didSelectCharacter(_character: RMCharacter)
+    func didSelectCharacter(_ character: RMCharacter)
 }
 
 /// View Model to handle character ist view logic
@@ -151,27 +151,31 @@ extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollection
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        guard shouldShowLoadMoreIndicator else{
-            return .zero
-        }
+        guard shouldShowLoadMoreIndicator else { return .zero }
+        
         return CGSize(width: collectionView.frame.width,
                       height: 100)
     }
-    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width-30)/2
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let isIphone = UIDevice.current.userInterfaceIdiom == .phone
+        let bounds = collectionView.bounds
+        let width: CGFloat = isIphone ? (bounds.width-30)/2 : (bounds.width-50)/4
+
         return CGSize(
             width: width,
             height: width * 1.5
         )
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let character = characters[indexPath.row]
-        delegate?.didSelectCharacter(_character: character)
+        delegate?.didSelectCharacter(character)
     }
 }
+
 // MARK: - ScrollView
 extension RMCharacterListViewViewModel: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -182,6 +186,7 @@ extension RMCharacterListViewViewModel: UIScrollViewDelegate{
               let url = URL(string: nextUrlString) else {
             return
         }
+        
         Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false){ [weak self]t in
             let offset = scrollView.contentOffset.y
             let totalContentHeight = scrollView.contentSize.height
@@ -190,6 +195,7 @@ extension RMCharacterListViewViewModel: UIScrollViewDelegate{
             if offset <= (totalContentHeight - totalScrollViewFixedHeight - 120){
                 self?.fetchAdditionalCharacters(url: url)
             }
+            
             t.invalidate()
         }
     }

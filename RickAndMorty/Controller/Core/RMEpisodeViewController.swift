@@ -40,7 +40,6 @@ final class RMEpisodeViewController: UIViewController, RMEpisodeListViewDelegate
                 episodeListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             ])
         }
-    
     @objc
      private func didTapShare(){
         
@@ -48,9 +47,9 @@ final class RMEpisodeViewController: UIViewController, RMEpisodeListViewDelegate
         
         // MARK: - RMEpisodeListViewDelegate
    
-    func rmEpisodeListView(_characterListView: RMEpisodeListView, didSelectEpisode episode: RMEpisode) {
+    func rmEpisodeListView(_ characterListView: RMEpisodeListView, didSelectEpisode episode: RMEpisode) {
        //Open detail controller for that episode
-        let detailVC = RMEpisodeDetailViewController(url: URL(string:episode.url))
+        let detailVC = RMEpisodeDetailViewController(url: URL(string: episode.url))
         detailVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(detailVC, animated: true )
     }
