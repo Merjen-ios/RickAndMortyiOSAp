@@ -95,7 +95,7 @@ final class RMCharacterListViewViewModel: NSObject{
                 let originalCount = strongSelf.characters.count
                 let newCount = moreResults.count
                 let total = originalCount+newCount
-                let startingIndex = total-newCount - 1
+                let startingIndex = total-newCount 
                 let indexPathsToAdd: [IndexPath] = Array(startingIndex..<(startingIndex+newCount)).compactMap({
                     return IndexPath(row: $0, section: 0)
                 })
@@ -138,17 +138,16 @@ extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollection
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionFooter,
-         let footer = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier,
-            for: indexPath
-        )as? RMFooterLoadingCollectionReusableView else{
-            fatalError("Unsupported")
+              let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier,
+                for: indexPath
+                ) as? RMFooterLoadingCollectionReusableView else{
+               fatalError("Unsupported")
         }
         
         footer.startAnimating()
         return footer
-        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         guard shouldShowLoadMoreIndicator else { return .zero }
@@ -159,10 +158,13 @@ extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let isIphone = UIDevice.current.userInterfaceIdiom == .phone
         let bounds = collectionView.bounds
-        let width: CGFloat = isIphone ? (bounds.width-30)/2 : (bounds.width-50)/4
-
+        let width: CGFloat
+        if UIDevice.isiPhone{
+            width = (bounds.width-30)/2
+        } else {
+            width = (bounds.width-50)/4
+        }
         return CGSize(
             width: width,
             height: width * 1.5

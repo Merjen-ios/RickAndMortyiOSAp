@@ -87,7 +87,7 @@ final class RMLocationView: UIView {
         self.viewModel = viewModel
     }
 }
-extension RMLocationView: UITableViewDelegate{
+extension RMLocationView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let locationModel = viewModel?.location(at: indexPath.row) else {
@@ -136,7 +136,6 @@ extension RMLocationView: UIScrollViewDelegate{
                     self?.showLoadingIndicator()
                 }
                 viewModel .fetchAdditionalLocations()
-                
             }
             t.invalidate()
         }
